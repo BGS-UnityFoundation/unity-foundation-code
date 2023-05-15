@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e9a7827df490a49bb4f24ac5689969, type: 3}
+  m_Name: initial_scene_loader_config
+  m_EditorClassIdentifier: 
+  <ExecuteOnAwake>k__BackingField: 1
+  <ScenesToLoad>k__BackingField:
+  - {fileID: 11400000, guid: db2f6e79d4c33964d894c79ee1250d15, type: 2}
+  <ScenesToReload>k__BackingField: []
+  <ScenesToUnLoad>k__BackingField: []
+  <TransitionPrefab>k__BackingField: {fileID: 0}

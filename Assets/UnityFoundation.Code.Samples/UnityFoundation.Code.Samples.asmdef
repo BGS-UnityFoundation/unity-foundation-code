@@ -1,0 +1,16 @@
+{
+    "name": "UnityFoundation.Code.Samples",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1dffb094c2e665346be997395af6021e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

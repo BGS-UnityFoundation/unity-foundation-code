@@ -1,0 +1,33 @@
+﻿using UnityEngine;
+using UnityFoundation.Code;
+
+namespace UnityFoundationSamples.UnityFoundation.Code
+{
+    public class CubicLerpDemo : MonoBehaviour
+    {
+        [SerializeField] private GameObject start;
+        [SerializeField] private GameObject mid;
+        [SerializeField] private GameObject mid2;
+        [SerializeField] private GameObject end;
+
+        [SerializeField] private GameObject refObject;
+
+        private float interpolationAmount = 0f;
+
+        public void Update()
+        {
+            interpolationAmount += Time.deltaTime;
+
+            if(interpolationAmount >= 1f)
+                interpolationAmount = 0f;
+
+            refObject.transform.position = LinearInterpolation.Cubic(
+                start.transform.position,
+                mid.transform.position,
+                mid2.transform.position,
+                end.transform.position,
+                interpolationAmount
+            );
+        }
+    }
+}

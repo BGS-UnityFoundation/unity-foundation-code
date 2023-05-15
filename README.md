@@ -1,6 +1,6 @@
 # UnityFoundation.Code
 
-![](https://img.shields.io/badge/Code%20Coverage-44.6%25-success?style=flat)
+![](https://img.shields.io/badge/Code%20Coverage-42.2%25-success?style=flat)
 
 O UnityFoundation.Code é o principal pacote disponível na biblioteca do UnityFoundation.
 Esse pacote é responsável por conter os principais códigos auxiliares, estruturas de dados e adaptadores da Unity. Além de códigos com propósitos gerais.

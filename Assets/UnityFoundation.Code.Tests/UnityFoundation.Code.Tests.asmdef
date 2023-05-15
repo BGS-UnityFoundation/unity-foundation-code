@@ -1,0 +1,19 @@
+{
+    "name": "UnityFoundation.Code.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1dffb094c2e665346be997395af6021e",
+        "GUID:56de67b70740b014a8b08bb241006e29"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
