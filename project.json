@@ -1,0 +1,8 @@
+{
+    "name": "UnityFoundation.Code",
+    "build_path": "Builds",
+    "output": "unityfoundation-code",
+    "export_folders": [
+        "Assets/UnityFoundation.Code"
+    ]
+}

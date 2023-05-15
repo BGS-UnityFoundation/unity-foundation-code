@@ -25,6 +25,19 @@ https://github.com/BrunoBiluca/unity-foundation-code.git?path=/Assets/UnityFound
 
 Por meio desse link o Package Manager da Unity irá baixar o a pasta selecionada na raiz do projeto.
 
+### Importação por .unitypackage
+
+O pacote `unityfoundation-code.unitypackage` pode ser baixado e importado no Editor da Unity.
+
+Depois de importado alguns pacotes devem ser adicionados ao `manisfest.json` por serem dependências desses pacote.
+
+```json
+{
+    "com.unity.inputsystem": "1.4.4",
+    "com.unity.textmeshpro": "3.0.6"
+}
+```
+
 ### Importação do pacote TestUtility
 
 Durante o desenvolvimento dos testes automatizados do UnityFoundation.Code foi criado também o pacote TestUtility.
