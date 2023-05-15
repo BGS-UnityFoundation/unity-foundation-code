@@ -1,0 +1,11 @@
+{
+	"name": "coop.unityfoundation.testutility",
+	"version": "0.0.1",
+	"displayName": "UnityFoundation TestUtility",
+	"unity": "2021.3",
+	"description": "Esse pacote é apresenta várias ferramentas que auxiliam na criação de testes automatizados no ambiente de desenvolvimento com Unity",
+	"author": {
+		"name": "Bruno Biluca",
+		"url": "https://brunobiluca.github.io/web/"
+	}
+}

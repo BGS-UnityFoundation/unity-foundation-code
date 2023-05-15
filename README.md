@@ -20,10 +20,22 @@ A forma mais simples de importar o pacote e garantir sempre ter uma versão atua
 Para isso abra o *Package Manager* e na opção de *Add package from git URL* adicione a seguinte url:
 
 ```
-https://github.com/BrunoBiluca/unity-foundation-code?path=tree/main/Assets/UnityFoundation.Code
+https://github.com/BrunoBiluca/unity-foundation-code.git?path=/Assets/UnityFoundation.Code
 ```
 
 Por meio desse link o Package Manager da Unity irá baixar o a pasta selecionada na raiz do projeto.
+
+### Importação do pacote TestUtility
+
+Durante o desenvolvimento dos testes automatizados do UnityFoundation.Code foi criado também o pacote TestUtility.
+
+Esse pacote disponibiliza várias estruturas para ajudar na criação de testes automatizados no ambiente da Unity.
+
+Para utilizá-lo basta abrir o *Package Manager* e na opção de *Add package from git URL* adicionar a seguinte url:
+
+```
+https://github.com/BrunoBiluca/unity-foundation-code.git?path=/Assets/UnityFoundation.TestUtility
+```
 
 ## Hierarquia de pastas
 
