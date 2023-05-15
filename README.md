@@ -2,16 +2,28 @@
 
 ![](https://img.shields.io/badge/Code%20Coverage-42.2%25-success?style=flat)
 
-O UnityFoundation.Code é o principal pacote disponível na biblioteca do UnityFoundation.
-Esse pacote é responsável por conter os principais códigos auxiliares, estruturas de dados e adaptadores da Unity. Além de códigos com propósitos gerais.
+Esse pacote é responsável por conter códigos auxiliares, estruturas de dados e adaptadores da Unity. Além de códigos com propósitos gerais.
 
 Principais funcionalidades:
 
-- Código auxiliar para programação assíncrona
-- Variadas estruturas de dados para qualquer tipo de arquitetura
-- Funcionalidades genéricas para criação de sistema de jogos
+- Código auxiliar para programação assíncrona na Unity
+- Variadas estruturas de dados para auxiliar na organização do código
 - Principais operações matemáticas
-- Adaptação da Unity a fim de proporcionar interfaces mais genéricas e testáveis que a própria Unity não disponibiliza
+- Adaptação da Unity a fim de proporcionar interfaces genéricas e auxiliar na criaçaõ de testes automatizados
+
+## Importação e uso da biblioteca
+
+### Importação pelo GitHub
+
+A forma mais simples de importar o pacote e garantir sempre ter uma versão atualizada é por meio da importação pela url do github.
+
+Para isso abra o *Package Manager* e na opção de *Add package from git URL* adicione a seguinte url:
+
+```
+https://github.com/BrunoBiluca/unity-foundation-code?path=tree/main/Assets/UnityFoundation.Code
+```
+
+Por meio desse link o Package Manager da Unity irá baixar o a pasta selecionada na raiz do projeto.
 
 ## Hierarquia de pastas
 
@@ -26,7 +38,7 @@ Principais funcionalidades:
  ┗ 📜readme.md
 ```
 
-## Uso e explicação
+## Funcionalidades
 
 Essa seção visa explicar e demonstrar cada sistema implementado no pacote UnityFoundation.Code.
 
