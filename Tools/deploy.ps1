@@ -30,15 +30,19 @@ $PACKAGE_JSON = Get-Content $PACKAGE_FILE | ConvertFrom-Json
 $PACKAGE_JSON.version = $VERSION
 ConvertTo-Json $PACKAGE_JSON -Depth 100 | Format-Json | Set-Content $PACKAGE_FILE
 
+$deploy_icon_value = [System.Convert]::toInt32("1f680",16)
+$deploy_icon = ([System.Char]::ConvertFromUtf32($deploy_icon_value))
+
 Write-Output "-------------------------------------------------------------------"
 Write-Output ""
-Write-Output "Deploying version $VERSION"
+Write-Output "$deploy_icon Deploying version $VERSION"
 Write-Output ""
 Write-Output "-------------------------------------------------------------------"
 
 # Commitar as alterações
-# git add $PROJECT_FILE $PACKAGE_FILE
-# git commit -m "🚀 Deploy of version $VERSION"
-# git push
+git add $PROJECT_FILE $PACKAGE_FILE
+git commit -m "$deploy_icon Deployment of version $VERSION"
+git tag $VERSION
+git push
 
 & $PSScriptRoot/export-package.ps1
