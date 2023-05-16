@@ -54,7 +54,6 @@ https://github.com/BrunoBiluca/unity-foundation-code.git?path=/Assets/UnityFound
 
 ```
 📦 UnityFoundation.Code
- ┣ 📂 _Tests                     # Testes unitários do pacote
  ┣ 📂 Async                      # Programação assíncrona
  ┣ 📂 DataStructures             # Estruturas de dados variadas
  ┣ 📂 Features                   # Códigos diversos para reutilização

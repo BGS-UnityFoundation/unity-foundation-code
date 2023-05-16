@@ -1,8 +1,12 @@
 {
     "name": "UnityFoundation.Code",
-    "build_path": "Builds",
-    "output": "unityfoundation-code",
-    "export_folders": [
-        "Assets/UnityFoundation.Code"
-    ]
+    "version": "0.0.1",
+    "package_file": "./Assets/UnityFoundation.Code/package.json",
+    "unity_package": {
+        "name": "unityfoundation-code",
+        "path": "Builds",
+        "export_folders": [
+            "Assets/UnityFoundation.Code"
+        ]
+    }
 }
