@@ -20,7 +20,7 @@ A forma mais simples de importar o pacote e garantir sempre ter uma versão atua
 Para isso abra o *Package Manager* e na opção de *Add package from git URL* adicione a seguinte url:
 
 ```
-https://github.com/BrunoBiluca/unity-foundation-code.git?path=/Assets/UnityFoundation.Code
+https://github.com/BGS-UnityFoundation/unity-foundation-code.git?path=/Assets/UnityFoundation.Code
 ```
 
 Por meio desse link o Package Manager da Unity irá baixar o a pasta selecionada na raiz do projeto.
@@ -47,7 +47,7 @@ Esse pacote disponibiliza várias estruturas para ajudar na criação de testes 
 Para utilizá-lo basta abrir o *Package Manager* e na opção de *Add package from git URL* adicionar a seguinte url:
 
 ```
-https://github.com/BrunoBiluca/unity-foundation-code.git?path=/Assets/UnityFoundation.TestUtility
+https://github.com/BGS-UnityFoundation/unity-foundation-code.git?path=/Assets/UnityFoundation.TestUtility
 ```
 
 ## Hierarquia de pastas
