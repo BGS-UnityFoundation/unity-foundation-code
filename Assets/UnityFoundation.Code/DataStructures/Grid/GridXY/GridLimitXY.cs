@@ -8,7 +8,8 @@ namespace UnityFoundation.Code
     {
         public int Width { get; }
         public int Height { get; }
-        public int Positions => Width * Height;
+
+        public int PositionsCount => Width * Height;
 
         public GridLimitXY(int width, int height)
         {
@@ -21,18 +22,18 @@ namespace UnityFoundation.Code
             return coordinate.X * Width + coordinate.Y;
         }
 
-        public XY GetCoordinate(int index)
+        public XY GetPosition(int index)
         {
             return new(index / Width, index % Width);
         }
 
         public IEnumerable<int> GetIndexes()
         {
-            foreach(var coord in GetAllCoordinates())
+            foreach(var coord in GetPositions())
                 yield return GetIndex(coord);
         }
 
-        public IEnumerable<XY> GetAllCoordinates()
+        public IEnumerable<XY> GetPositions()
         {
             for(int x = 0; x < Width; x++)
                 for(int y = 0; y < Height; y++)

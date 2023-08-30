@@ -3,7 +3,6 @@ using System;
 
 namespace UnityFoundation.Code.Tests
 {
-    [TestFixture(typeof(BaseGridTestFixture), typeof(XZ))]
     [TestFixture(typeof(GridXZTestFixture), typeof(XZ))]
     [TestFixture(typeof(GridXYTestFixture), typeof(XY))]
     public class GridTests<TFixture, TPos> where TFixture : IGridTestFixture<TPos, int>, new()
