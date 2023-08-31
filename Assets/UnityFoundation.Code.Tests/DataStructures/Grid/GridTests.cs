@@ -62,5 +62,16 @@ namespace UnityFoundation.Code.Tests
             grid.SetValue(coord, 456);
             Assert.That(grid.GetValue(coord), Is.EqualTo(456));
         }
+
+        [Test]
+        public void Given_grid_should_give_visibility_on_grid_limits()
+        {
+            var grid = fixture.Grid();
+
+            Assert.That(
+                grid.Limits.PositionsCount,
+                Is.EqualTo(fixture.Limits.PositionsCount)
+            );
+        }
     }
 }

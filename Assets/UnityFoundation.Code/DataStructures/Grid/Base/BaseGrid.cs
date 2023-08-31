@@ -12,6 +12,8 @@ namespace UnityFoundation.Code
 
         private readonly Dictionary<int, TGridCell> cells;
 
+        public IGridLimits<TPosition> Limits => limits;
+
         public BaseGrid(TGridLimits limits)
         {
             this.limits = limits;

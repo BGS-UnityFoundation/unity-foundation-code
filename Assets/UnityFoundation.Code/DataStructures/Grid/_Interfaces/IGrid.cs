@@ -4,6 +4,8 @@ namespace UnityFoundation.Code
 {
     public interface IGrid<TPosition, TValue>
     {
+        IGridLimits<TPosition> Limits { get; }
+
         void Clear(TPosition coordinate);
         TValue GetValue(TPosition coordinate);
         bool IsInsideGrid(TPosition coordinate);
