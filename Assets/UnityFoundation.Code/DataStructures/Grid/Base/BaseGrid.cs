@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace UnityFoundation.Code
 {
@@ -66,6 +67,19 @@ namespace UnityFoundation.Code
         {
             foreach(var cell in cells.Values)
                 yield return cell.GetValue();
+        }
+
+        public TPosition GetPosition(TValue value)
+        {
+            foreach (var cell in cells)
+            {
+                if (EqualityComparer<TValue>.Default.Equals(cell.Value.GetValue(), value))
+                {
+                    return limits.GetPosition(cell.Key);                    
+                }
+            }
+
+            return default;
         }
     }
 }

@@ -10,5 +10,24 @@
             X = x;
             Z = z;
         }
+
+        public override bool Equals(object obj)
+        {
+            var otherPosition = obj as XZ;
+            
+            if(otherPosition == null) return false;
+
+            return otherPosition.X == X && otherPosition.Z == Z;            
+        }
+
+        public override int GetHashCode()
+        {
+            return X.GetHashCode()*Z.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return $"({X},{Z})";
+        }
     }
 }

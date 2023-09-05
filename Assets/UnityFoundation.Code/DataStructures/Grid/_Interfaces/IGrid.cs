@@ -7,6 +7,7 @@ namespace UnityFoundation.Code
         IGridLimits<TPosition> Limits { get; }
 
         void Clear(TPosition coordinate);
+        TPosition GetPosition(TValue value);
         TValue GetValue(TPosition coordinate);
         bool IsInsideGrid(TPosition coordinate);
         void SetValue(TPosition coordinate, TValue value);
