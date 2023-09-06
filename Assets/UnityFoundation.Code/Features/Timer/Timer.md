@@ -1,4 +1,4 @@
-# Timer V2
+# Timer
 
 Nova versão do timer. Esse timer pode ser instanciado em qualquer lugar do código.
 
@@ -38,5 +38,3 @@ loopTimer.Stop();
 // Retoma a execução do timer de onde parou
 loopTimer.Resume();
 ```
-
-![exemplo de utilização](../../Docs/timer_v2_demo.PNG)

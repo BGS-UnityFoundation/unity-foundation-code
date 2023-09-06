@@ -1,0 +1,20 @@
+div[data-path$='Assets/TextMesh Pro'],
+div[data-path$='Assets/TextMesh Pro'] + div.nav-folder-children,
+div[data-path$='Builds'],
+div[data-path$='Builds'] + div.nav-folder-children,
+div[data-path$='CodeCoverage'],
+div[data-path$='CodeCoverage'] + div.nav-folder-children,
+div[data-path$='Library'],
+div[data-path$='Library'] + div.nav-folder-children,
+div[data-path$='Logs'],
+div[data-path$='Logs'] + div.nav-folder-children,
+div[data-path$='obj'],
+div[data-path$='obj'] + div.nav-folder-children,
+div[data-path$='Packages'],
+div[data-path$='Packages'] + div.nav-folder-children,
+div[data-path$='ProjectSettings'],
+div[data-path$='ProjectSettings'] + div.nav-folder-children,
+div[data-path$='UserSettings'],
+div[data-path$='UserSettings'] + div.nav-folder-children {
+	display: none;
+}
