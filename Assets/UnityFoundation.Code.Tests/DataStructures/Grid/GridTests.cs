@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using UnityEditor.VersionControl;
 
 namespace UnityFoundation.Code.Tests
 {
@@ -86,6 +87,22 @@ namespace UnityFoundation.Code.Tests
 
             Assert.That(grid.GetValue(fixture.Coordinate()), Is.EqualTo(secondValue));
             Assert.That(grid.GetValue(fixture.SecondCoordinate()), Is.EqualTo(firstValue));
+        }
+
+        [Test]
+        public void Should_force_set_value()
+        {
+            var grid = fixture.Grid();
+            var expected = 123;
+
+            var original = grid.GetValue(fixture.Coordinate());
+            grid.SetValue(fixture.Coordinate(), expected);
+
+            Assert.That(grid.GetValue(fixture.Coordinate()), Is.EqualTo(original));
+
+            grid.SetValueForce(fixture.Coordinate(), expected);
+
+            Assert.That(grid.GetValue(fixture.Coordinate()), Is.EqualTo(expected));
         }
     }
 

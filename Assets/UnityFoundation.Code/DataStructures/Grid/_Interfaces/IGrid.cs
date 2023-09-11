@@ -12,6 +12,7 @@ namespace UnityFoundation.Code
         TValue GetValue(TPosition coordinate);
         bool IsInsideGrid(TPosition coordinate);
         void SetValue(TPosition coordinate, TValue value);
+        void SetValueForce(TPosition pos, TValue value);
         void UpdateValue(TPosition coordinate, Action<TValue> valueCallback);
     }
 }

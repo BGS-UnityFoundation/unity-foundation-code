@@ -9,12 +9,8 @@ namespace UnityFoundation.Code
         where TGridCell : IGridCell<TValue>, new()
         where TValue : new()
     {
-        private readonly TGridLimits limits;
-
         private readonly Dictionary<int, TGridCell> cells;
-
-        public IGridLimits<TPosition> Limits => limits;
-
+        private readonly TGridLimits limits;
         public BaseGrid(TGridLimits limits)
         {
             this.limits = limits;
@@ -24,32 +20,17 @@ namespace UnityFoundation.Code
                 cells.Add(index, new());
         }
 
-        public bool IsInsideGrid(TPosition coordinate)
+        public IGridLimits<TPosition> Limits => limits;
+        public void ChangeValues(TPosition pos1, TPosition pos2)
         {
-            return limits.IsInside(coordinate);
-        }
+            var pos1Value = GetValue(pos1);
+            var pos2Value = GetValue(pos2);
 
-        public TValue GetValue(TPosition coordinate)
-        {
-            return GetCell(coordinate).GetValue();
-        }
+            Clear(pos1);
+            Clear(pos2);
 
-        public void SetValue(TPosition coordinate, TValue value)
-        {
-            GetCell(coordinate).SetValue(value);
-        }
-
-        private TGridCell GetCell(TPosition coordinate)
-        {
-            if(!IsInsideGrid(coordinate))
-                throw new ArgumentOutOfRangeException($"Coordinate {coordinate} is not inside grid");
-
-            return cells[limits.GetIndex(coordinate)];
-        }
-
-        public void UpdateValue(TPosition coordinate, Action<TValue> valueCallback)
-        {
-            valueCallback(GetCell(coordinate).GetValue());
+            SetValue(pos1, pos2Value);
+            SetValue(pos2, pos1Value);
         }
 
         public void Clear(TPosition coordinate)
@@ -61,12 +42,6 @@ namespace UnityFoundation.Code
         {
             foreach(var cell in cells.Values)
                 cell.Clear();
-        }
-
-        public IEnumerable<TValue> GetValues()
-        {
-            foreach(var cell in cells.Values)
-                yield return cell.GetValue();
         }
 
         public TPosition GetPosition(TValue value)
@@ -82,16 +57,43 @@ namespace UnityFoundation.Code
             return default;
         }
 
-        public void ChangeValues(TPosition pos1, TPosition pos2)
+        public TValue GetValue(TPosition coordinate)
         {
-            var pos1Value = GetValue(pos1);
-            var pos2Value = GetValue(pos2);
+            return GetCell(coordinate).GetValue();
+        }
 
-            Clear(pos1);
-            Clear(pos2);
+        public IEnumerable<TValue> GetValues()
+        {
+            foreach(var cell in cells.Values)
+                yield return cell.GetValue();
+        }
 
-            SetValue(pos1, pos2Value);
-            SetValue(pos2, pos1Value);
+        public bool IsInsideGrid(TPosition coordinate)
+        {
+            return limits.IsInside(coordinate);
+        }
+        public void SetValue(TPosition coordinate, TValue value)
+        {
+            GetCell(coordinate).SetValue(value);
+        }
+
+        public void SetValueForce(TPosition pos, TValue value)
+        {
+            Clear(pos);
+            SetValue(pos, value);
+        }
+
+        public void UpdateValue(TPosition coordinate, Action<TValue> valueCallback)
+        {
+            valueCallback(GetCell(coordinate).GetValue());
+        }
+
+        private TGridCell GetCell(TPosition coordinate)
+        {
+            if(!IsInsideGrid(coordinate))
+                throw new ArgumentOutOfRangeException($"Coordinate {coordinate} is not inside grid");
+
+            return cells[limits.GetIndex(coordinate)];
         }
     }
 }
