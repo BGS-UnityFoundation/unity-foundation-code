@@ -6,6 +6,7 @@ namespace UnityFoundation.Code
     {
         IGridLimits<TPosition> Limits { get; }
 
+        void ChangeValues(TPosition pos1, TPosition pos2);
         void Clear(TPosition coordinate);
         TPosition GetPosition(TValue value);
         TValue GetValue(TPosition coordinate);

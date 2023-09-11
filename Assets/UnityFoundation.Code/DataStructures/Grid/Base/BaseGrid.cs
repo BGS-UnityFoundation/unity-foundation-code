@@ -71,15 +71,27 @@ namespace UnityFoundation.Code
 
         public TPosition GetPosition(TValue value)
         {
-            foreach (var cell in cells)
+            foreach(var cell in cells)
             {
-                if (EqualityComparer<TValue>.Default.Equals(cell.Value.GetValue(), value))
+                if(EqualityComparer<TValue>.Default.Equals(cell.Value.GetValue(), value))
                 {
-                    return limits.GetPosition(cell.Key);                    
+                    return limits.GetPosition(cell.Key);
                 }
             }
 
             return default;
+        }
+
+        public void ChangeValues(TPosition pos1, TPosition pos2)
+        {
+            var pos1Value = GetValue(pos1);
+            var pos2Value = GetValue(pos2);
+
+            Clear(pos1);
+            Clear(pos2);
+
+            SetValue(pos1, pos2Value);
+            SetValue(pos2, pos1Value);
         }
     }
 }

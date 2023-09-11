@@ -11,9 +11,18 @@
 
         public IGridLimits<XZ> Limits => limits;
 
+        public IGrid<XZ, int> GridEmpty() => new GridXZ<int>(limits);
+
         public virtual IGrid<XZ, int> Grid()
         {
-            return new BaseGrid<GridXZLimits, GridCell<int>, XZ, int>(limits);
+            var grid = new GridXZ<int>(limits);
+            grid.Clear();
+
+            var index = 0;
+            foreach(var pos in grid.Limits.GetPositions())
+                grid.SetValue(pos, index++);
+
+            return grid;
         }
 
         public XZ Coordinate() => new(0, 0);

@@ -34,7 +34,7 @@ namespace UnityFoundation.Code.Tests
         [Test]
         public void Given_position_is_filled_should_not_change_value_when_try_set_it()
         {
-            var grid = fixture.Grid();
+            var grid = fixture.GridEmpty();
 
             var coord = fixture.Coordinate();
             grid.SetValue(coord, 123);
@@ -49,7 +49,7 @@ namespace UnityFoundation.Code.Tests
         [Test]
         public void Should_set_value_when_position_was_cleared()
         {
-            var grid = fixture.Grid();
+            var grid = fixture.GridEmpty();
 
             var coord = fixture.Coordinate();
             grid.SetValue(coord, 123);
@@ -66,12 +66,27 @@ namespace UnityFoundation.Code.Tests
         [Test]
         public void Given_grid_should_give_visibility_on_grid_limits()
         {
-            var grid = fixture.Grid();
+            var grid = fixture.GridEmpty();
 
             Assert.That(
                 grid.Limits.PositionsCount,
                 Is.EqualTo(fixture.Limits.PositionsCount)
             );
         }
+
+        [Test]
+        public void Given_two_valid_positions_should_be_able_to_change_its_values()
+        {
+            var grid = fixture.Grid();
+
+            var firstValue = grid.GetValue(fixture.Coordinate());
+            var secondValue = grid.GetValue(fixture.SecondCoordinate());
+
+            grid.ChangeValues(fixture.Coordinate(), fixture.SecondCoordinate());
+
+            Assert.That(grid.GetValue(fixture.Coordinate()), Is.EqualTo(secondValue));
+            Assert.That(grid.GetValue(fixture.SecondCoordinate()), Is.EqualTo(firstValue));
+        }
     }
+
 }
