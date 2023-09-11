@@ -1,13 +1,14 @@
 {
-  "userIgnoreFilters": [
-    "Builds/",
-    "CodeCoverage/",
-    "Library/",
-    "Logs/",
-    "Packages/",
-    "obj/",
-    "ProjectSettings/",
-    "UserSettings/",
-    "Assets/TextMesh Pro/"
-  ]
+	"userIgnoreFilters": [
+		"Builds/",
+		"CodeCoverage/",
+		"Library/",
+		"Logs/",
+		"Packages/",
+		"obj/",
+		"ProjectSettings/",
+		"UserSettings/",
+		"Assets/TextMesh Pro/",
+		"Temp/"
+	]
 }

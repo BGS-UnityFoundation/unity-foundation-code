@@ -14,6 +14,8 @@ div[data-path$='Packages'],
 div[data-path$='Packages'] + div.nav-folder-children,
 div[data-path$='ProjectSettings'],
 div[data-path$='ProjectSettings'] + div.nav-folder-children,
+div[data-path$='Temp'],
+div[data-path$='Temp'] + div.nav-folder-children,
 div[data-path$='UserSettings'],
 div[data-path$='UserSettings'] + div.nav-folder-children {
 	display: none;
