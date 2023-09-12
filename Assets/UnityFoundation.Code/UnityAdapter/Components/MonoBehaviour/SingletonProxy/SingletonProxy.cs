@@ -2,6 +2,9 @@
 
 namespace UnityFoundation.Code
 {
+    /// <summary>
+    /// SingletonProxy is used to create a singleton about another Component
+    /// </summary>
     public class SingletonProxy<T> : MonoBehaviour where T : Component
     {
         private static T instance;

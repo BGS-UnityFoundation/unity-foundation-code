@@ -23,6 +23,8 @@ namespace UnityFoundation.Code.Timer
 
         public float RemainingTime => throw new System.NotImplementedException();
 
+        public float TotalTime => throw new System.NotImplementedException();
+
         public void Close()
         {
             throw new System.NotImplementedException();
@@ -43,7 +45,7 @@ namespace UnityFoundation.Code.Timer
             throw new System.NotImplementedException();
         }
 
-        public ITimer SetAmount(float newAmount)
+        public ITimer SetTotalTime(float newAmount)
         {
             amount = newAmount;
             return this;

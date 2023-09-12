@@ -6,21 +6,6 @@ namespace UnityFoundation.Code.Timer
 {
     public class Timer : ITimer
     {
-        private static GameObject timersReference;
-
-        private static void TryGetTimersReference()
-        {
-            if(timersReference != null) return;
-
-            var timersRef = GameObject.Find("** Timers");
-            if(timersRef == null)
-            {
-                timersRef = new GameObject("** Timers");
-            }
-
-            timersReference = timersRef;
-        }
-
         /// <summary>
         /// Get the time passed in the current loop in seconds
         /// </summary>
@@ -36,21 +21,21 @@ namespace UnityFoundation.Code.Timer
         /// <summary>
         /// Get the time to end the current loop in seconds
         /// </summary>
-        public float RemainingTime { get { return amount - timerBehaviour.Timer; } }
+        public float RemainingTime { get { return TotalTime - timerBehaviour.Timer; } }
 
         /// <summary>
         /// Get the completion percentage of the timer
         /// </summary>
         public float Completion {
             get {
-                return CurrentTime / amount * 100f;
+                return CurrentTime / TotalTime * 100f;
             }
         }
 
         /// <summary>
         /// Get if the timer finished it's execution
         /// </summary>
-        public bool Completed => MathX.NearlyEqual(CurrentTime, amount, 0.01f);
+        public bool Completed => MathX.NearlyEqual(CurrentTime, TotalTime, 0.01f);
 
         /// <summary>
         /// Get if the timer is current running
@@ -61,40 +46,38 @@ namespace UnityFoundation.Code.Timer
             }
         }
 
+        public float TotalTime { get; private set; }
+        public bool SelfDestroyAfterComplete { get; set; }
+
         private TimerMonoBehaviour timerBehaviour;
         private string name;
-        private float amount;
         private bool isLoop;
         private readonly Action callback;
 
         /// <summary>
         /// Instantiate a gameobject to run the timer for some provider action, by default run once and stop
         /// </summary>
-        /// <param name="amount">time in seconds</param>
-        public Timer(float amount)
+        /// <param name="totalTime">time in seconds</param>
+        public Timer(float totalTime)
         {
-            this.amount = amount;
+            TotalTime = totalTime;
             callback = () => { };
-
-            isLoop = false;
         }
 
         /// <summary>
         /// Instantiate a gameobject to run the timer for some provider action, by default run once and stop
         /// </summary>
-        /// <param name="amount">time in seconds</param>
-        /// <param name="callback">callback called when amount of time is reached</param>
-        public Timer(float amount, Action callback)
+        /// <param name="totalTime">time in seconds</param>
+        /// <param name="callback">callback called when totalTime of time is reached</param>
+        public Timer(float totalTime, Action callback)
         {
-            this.amount = amount;
+            this.TotalTime = totalTime;
             this.callback = callback;
-
-            isLoop = true;
         }
 
-        public ITimer SetAmount(float newAmount)
+        public ITimer SetTotalTime(float newtotalTime)
         {
-            amount = newAmount;
+            TotalTime = newtotalTime;
             return this;
         }
 
@@ -124,8 +107,7 @@ namespace UnityFoundation.Code.Timer
             if(timerBehaviour == null)
                 InstantiateTimer();
 
-            timerBehaviour.Setup(amount, callback, isLoop);
-
+            timerBehaviour.Setup(TotalTime, callback, isLoop, SelfDestroyAfterComplete);
             return this;
         }
 
@@ -152,12 +134,10 @@ namespace UnityFoundation.Code.Timer
 
         private void InstantiateTimer()
         {
-            TryGetTimersReference();
-
             if(string.IsNullOrEmpty(name)) name = Guid.NewGuid().ToString();
 
             timerBehaviour = new GameObject(name).AddComponent<TimerMonoBehaviour>();
-            timerBehaviour.transform.SetParent(timersReference.transform);
+            timerBehaviour.transform.SetParent(TimersReference.I.GetTransform());
         }
     }
 }

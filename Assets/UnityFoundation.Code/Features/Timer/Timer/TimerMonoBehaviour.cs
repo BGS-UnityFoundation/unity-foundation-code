@@ -22,14 +22,20 @@ namespace UnityFoundation.Code.Timer
 
         private Action callback;
 
-        public void Setup(float amount, Action callback, bool loop = true)
+        public void Setup(
+            float amount,
+            Action callback,
+            bool loop = true,
+            bool destroyAfterComplete = false
+        )
         {
             timer = 0f;
             timerMax = amount;
             this.callback = callback;
             this.loop = loop;
+            selfDestroyAfterComplete = destroyAfterComplete;
 
-            gameObject.SetActive(true);
+            Activate();
         }
 
         public void Activate()
@@ -39,7 +45,10 @@ namespace UnityFoundation.Code.Timer
 
         public void Deactivate()
         {
-            gameObject.SetActive(false);
+            if(selfDestroyAfterComplete)
+                Destroy(gameObject);
+            else
+                gameObject.SetActive(false);
         }
 
         public void Close()
