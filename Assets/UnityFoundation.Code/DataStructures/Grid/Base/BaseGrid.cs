@@ -4,23 +4,25 @@ using UnityEngine;
 
 namespace UnityFoundation.Code
 {
-    public class BaseGrid<TGridLimits, TGridCell, TPosition, TValue> : IGrid<TPosition, TValue>
+    public abstract class BaseGrid<TGridLimits, TGridCell, TPosition, TValue> : IGrid<TPosition, TValue>
         where TGridLimits : IGridLimits<TPosition>
         where TGridCell : IGridCell<TValue>, new()
         where TValue : new()
-    {
-        private readonly Dictionary<int, TGridCell> cells;
+    {        
         private readonly TGridLimits limits;
-        public BaseGrid(TGridLimits limits)
+        protected BaseGrid(TGridLimits limits)
         {
             this.limits = limits;
-
-            cells = new();
-            foreach(var index in limits.GetIndexes())
-                cells.Add(index, new());
+            Cells = new();
+            InitializeCells(Cells);
         }
 
+        protected abstract void InitializeCells(Dictionary<int, TGridCell> cells);        
+
         public IGridLimits<TPosition> Limits => limits;
+       
+        private Dictionary<int, TGridCell> Cells { get; }
+
         public void ChangeValues(TPosition pos1, TPosition pos2)
         {
             var pos1Value = GetValue(pos1);
@@ -40,13 +42,13 @@ namespace UnityFoundation.Code
 
         public void Clear()
         {
-            foreach(var cell in cells.Values)
+            foreach(var cell in Cells.Values)
                 cell.Clear();
         }
 
         public TPosition GetPosition(TValue value)
         {
-            foreach(var cell in cells)
+            foreach(var cell in Cells)
             {
                 if(EqualityComparer<TValue>.Default.Equals(cell.Value.GetValue(), value))
                 {
@@ -64,7 +66,7 @@ namespace UnityFoundation.Code
 
         public IEnumerable<TValue> GetValues()
         {
-            foreach(var cell in cells.Values)
+            foreach(var cell in Cells.Values)
                 yield return cell.GetValue();
         }
 
@@ -93,7 +95,7 @@ namespace UnityFoundation.Code
             if(!IsInsideGrid(coordinate))
                 throw new ArgumentOutOfRangeException($"Coordinate {coordinate} is not inside grid");
 
-            return cells[limits.GetIndex(coordinate)];
+            return Cells[limits.GetIndex(coordinate)];
         }
     }
 }

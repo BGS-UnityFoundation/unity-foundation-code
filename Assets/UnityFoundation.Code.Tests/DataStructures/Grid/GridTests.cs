@@ -1,6 +1,5 @@
 using NUnit.Framework;
 using System;
-using UnityEditor.VersionControl;
 
 namespace UnityFoundation.Code.Tests
 {
