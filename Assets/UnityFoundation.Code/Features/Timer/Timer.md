@@ -1,40 +1,40 @@
 # Timer
 
-Nova versão do timer. Esse timer pode ser instanciado em qualquer lugar do código.
+Esse recurso de Timer pode ser utilizado em vários tipos de aplicações. Como controlar tempo de execução de uma habilidade, tempo de uma volta em um jogo de corrida, entre várias outras.
 
-Propriedades:
+### Propriedades
 
 - CurrentTime
 - RemainingTime
 - Completion
 
-Modo de utilização:
+# Criação de Timers
+
+Os timers podem ser instanciados de várias formas dependendo das necessidades.
+
+### Timer loop
 
 ```csharp
 // Timer em loop (defaut mode)
-var loopTimer = new TimerV2(5f, () => {
-    // do stuff when complete a loop
-})
+var loopTimer = new Timer(totalTime, callback)
     .SetName("Loop counter timer")
     .Loop()
     .Start();
+```
 
+### Timer de execução única
+
+```csharp
 // Timer que roda apenas uma vez
-var runOnceTimer = new TimerV2(5f, () => {
-    // do stuff when finished
-})
+var runOnceTimer = new Timer(totalTime, callback)
     .SetName("Loop run once timer")
     .RunOnce()
     .Start();
 ```
 
-Para parar e retorna a execução do Timer
+### Instanciação de timer global
+Essa instanciação permite a criação de um timer de forma global que irá executar o callback quando completar o tempo total e então se auto destruir.
 
 ```csharp
-
-// Pausa a execução do timer
-loopTimer.Stop(); 
-
-// Retoma a execução do timer de onde parou
-loopTimer.Resume();
+var timer = TimersReference.I.Create(totalTime, callback);
 ```
