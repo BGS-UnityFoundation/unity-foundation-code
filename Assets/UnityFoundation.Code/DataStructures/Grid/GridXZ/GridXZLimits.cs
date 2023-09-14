@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 namespace UnityFoundation.Code
 {
@@ -43,6 +44,22 @@ namespace UnityFoundation.Code
                 && coordinate.X < Width
                 && coordinate.Z >= 0
                 && coordinate.Z < Depth;
+        }
+
+        public XZ[] GetNeighbours(XZ position)
+        {
+            var neighbours = new List<XZ>();
+            AppendNeighbour(neighbours, position.Right);
+            AppendNeighbour(neighbours, position.Forward);
+            AppendNeighbour(neighbours, position.Left);
+            AppendNeighbour(neighbours, position.Backwards);
+            return neighbours.ToArray();
+        }
+
+        private void AppendNeighbour(List<XZ> neighbours, XZ position)
+        {
+            if(IsInside(position))
+                neighbours.Add(position);
         }
     }
 }

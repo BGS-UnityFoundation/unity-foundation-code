@@ -3,6 +3,7 @@ using NUnit.Framework;
 namespace UnityFoundation.Code.Tests
 {
     [TestFixture(typeof(GridLimitsXYFixture), typeof(XY))]
+    [TestFixture(typeof(GridLimitsXZFixture), typeof(XZ))]
     public class GridLimitsTests<TLimits, TPos>
         where TLimits : IGridLimitsFixture<TPos>, new()
     {
