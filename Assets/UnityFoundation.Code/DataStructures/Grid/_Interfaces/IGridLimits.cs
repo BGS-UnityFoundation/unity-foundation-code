@@ -15,5 +15,6 @@ namespace UnityFoundation.Code
         TPosition GetPosition(int index);
         IEnumerable<int> GetIndexes();
         IEnumerable<TPosition> GetPositions();
+        TPosition[] GetNeighbours(TPosition position) { return null; }
     }
 }

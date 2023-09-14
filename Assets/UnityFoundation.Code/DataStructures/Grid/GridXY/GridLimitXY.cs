@@ -47,5 +47,21 @@ namespace UnityFoundation.Code
                 && coordinate.Y >= 0
                 && coordinate.Y < Height;
         }
+
+        public XY[] GetNeighbours(XY position)
+        {
+            var neighbours = new List<XY>();
+            AppendNeighbour(neighbours, position.Right);
+            AppendNeighbour(neighbours, position.Up);
+            AppendNeighbour(neighbours, position.Left);
+            AppendNeighbour(neighbours, position.Down);
+            return neighbours.ToArray();
+        }
+
+        private void AppendNeighbour(List<XY> neighbours, XY position)
+        {
+            if(IsInside(position))
+                neighbours.Add(position);
+        }
     }
 }

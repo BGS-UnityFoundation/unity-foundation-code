@@ -4,6 +4,13 @@
     {
         public IGridLimits<TPosition> Limits { get; }
 
-        public IGridPositionFixture<TPosition> Positions { get; }
+        TPosition First { get; }
+        int FirstNeighboursCount { get; }
+
+        TPosition Central { get; }
+        int CentralNeighboursCount { get; }
+
+        TPosition CentralEdge { get; }
+        int CentralEdgeNeighboursCount { get; }
     }
 }

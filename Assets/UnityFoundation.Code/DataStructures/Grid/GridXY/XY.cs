@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine.UIElements;
 
 namespace UnityFoundation.Code
 {
@@ -13,6 +14,11 @@ namespace UnityFoundation.Code
             X = x;
             Y = y;
         }
+
+        public XY Right => new(X + 1, Y);
+        public XY Up => new(X, Y + 1);
+        public XY Left => new(X - 1, Y);
+        public XY Down => new(X, Y - 1);
 
         public override bool Equals(object obj)
         {
