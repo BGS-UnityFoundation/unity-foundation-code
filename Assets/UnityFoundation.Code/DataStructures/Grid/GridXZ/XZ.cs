@@ -1,6 +1,8 @@
-﻿namespace UnityFoundation.Code
+﻿using System;
+
+namespace UnityFoundation.Code
 {
-    public class XZ
+    public readonly struct XZ : IEquatable<XZ>
     {
         public int X { get; }
         public int Z { get; }
@@ -15,13 +17,9 @@
             Z = z;
         }
 
-        public override bool Equals(object obj)
-        {
-            var otherPosition = obj as XZ;
-
-            if(otherPosition == null) return false;
-
-            return otherPosition.X == X && otherPosition.Z == Z;
+        public bool Equals(XZ xz)
+        {           
+            return xz.X == X && xz.Z == Z;
         }
 
         public override int GetHashCode()
@@ -29,9 +27,17 @@
             return X.GetHashCode() * Z.GetHashCode();
         }
 
+        public static bool operator ==(XZ xz, XZ xz2)
+        {
+            return Equals(xz, xz2);
+        }
+
+        public static bool operator !=(XZ xz, XZ xz2) => !(xz == xz2);
+
         public override string ToString()
         {
             return $"({X},{Z})";
         }
+
     }
 }
