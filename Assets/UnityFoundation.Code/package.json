@@ -1,6 +1,6 @@
 {
     "name": "coop.unityfoundation.code",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "displayName": "UnityFoundation Code",
     "unity": "2021.3",
     "description": "Esse pacote é responsável por conter códigos auxiliares, estruturas de dados e adaptadores da Unity. Além de códigos com propósitos gerais.",

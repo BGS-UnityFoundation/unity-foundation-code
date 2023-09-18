@@ -1,6 +1,6 @@
 {
     "name": "UnityFoundation.Code",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "package_file": "./Assets/UnityFoundation.Code/package.json",
     "unity_package": {
         "name": "unityfoundation-code",
