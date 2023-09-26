@@ -22,6 +22,8 @@ namespace UnityFoundation.Code.Features
 
         public void Activate()
         {
+            OnDestroyAction = delegate { };
+
             OnActivate();
             gameObject.SetActive(true);
 
